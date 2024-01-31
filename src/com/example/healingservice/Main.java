@@ -2,20 +2,23 @@ package com.example.healingservice;
 
 import com.example.healingservice.model.dex.JohtoPokeDexEntry;
 import com.example.healingservice.model.dex.KantoPokeDexEntry;
-import com.example.healingservice.model.dex.PokeDexEntry;
 import com.example.healingservice.model.pokemon.Pokemon;
 import com.example.healingservice.model.trainer.Trainer;
 import com.example.healingservice.service.HealingService;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 class Main {
+
+  private static final Logger log = Logger.getLogger(Main.class.getName());
+
   public static void main(String[] args) {
     Trainer trainer1 = new Trainer("Ash Ketchum", new HashSet<>(generateAshPokemon()));
-    System.out.println(STR."Pokemon before: \{trainer1.pokemon()}");
+    log.info(STR."Pokemon before: \{trainer1.pokemon()}");
     Set<Pokemon> healedPokemon = HealingService.healPokemon(trainer1.pokemon());
-    trainer1 = new Trainer(trainer1.name(), healedPokemon);
-    System.out.println(STR."Pokemon after: \{trainer1.pokemon()}");
+    Trainer newTrainer1 = new Trainer(trainer1.name(), healedPokemon);
+    log.info(STR."Pokemon after: \{newTrainer1.pokemon()}");
   }
 
 
