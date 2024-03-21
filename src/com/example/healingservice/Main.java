@@ -2,7 +2,9 @@ package com.example.healingservice;
 
 import com.example.healingservice.model.dex.JohtoPokeDexEntry;
 import com.example.healingservice.model.dex.KantoPokeDexEntry;
+import com.example.healingservice.model.pokemon.DoubleTypePokemon;
 import com.example.healingservice.model.pokemon.Pokemon;
+import com.example.healingservice.model.pokemon.SingleTypePokemon;
 import com.example.healingservice.model.trainer.Trainer;
 import com.example.healingservice.service.HealingService;
 import java.util.HashSet;
@@ -25,16 +27,16 @@ class Main {
   private static Set<Pokemon> generateAshPokemon() {
     return new HashSet<>(
         Set.of(
-            new Pokemon.SingleTypePokemon(new KantoPokeDexEntry("Pikachu is very cute", 25, "Pikachu"),
+            new SingleTypePokemon(new KantoPokeDexEntry("Pikachu is very cute", 25, "Pikachu"),
                 "Pikaaa", "Static", "Electric", false),
-            new Pokemon.SingleTypePokemon(new JohtoPokeDexEntry("Don't touch it burns", 5, "Quilava"),
+            new SingleTypePokemon(new JohtoPokeDexEntry("Don't touch it burns", 5, "Quilava"),
                 "HotSonic", "Blaze",
                 "Fire", false),
-            new Pokemon.DoubleTypePokemon(new JohtoPokeDexEntry("Wooper even cuter than Pickachu (fight me after my Talk)", 56, "Wooper"),
+            new DoubleTypePokemon(new JohtoPokeDexEntry("Wooper even cuter than Pickachu (fight me after my Talk)", 56, "Wooper"),
                 "WoopDiDoo", "Water Absorb", "Water", false, "Ground"),
-            new Pokemon.SingleTypePokemon(new JohtoPokeDexEntry("Feraligatr is a Big Jaw Pokemon", 9, "Feraligatr"),
+            new SingleTypePokemon(new JohtoPokeDexEntry("Feraligatr is a Big Jaw Pokemon", 9, "Feraligatr"),
                 "CrocoDoc", "Torrent", "Water", false),
-            new Pokemon.DoubleTypePokemon(new KantoPokeDexEntry("Venusaur is big and healthy", 3, "Venusaur"),
+            new DoubleTypePokemon(new KantoPokeDexEntry("Venusaur is big and healthy", 3, "Venusaur"),
                 "Venusaur", "Overgrow", "Grass", true, "Poison")
         )
     );
